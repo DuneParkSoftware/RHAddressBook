@@ -74,7 +74,10 @@ BOOL rh_dispatch_is_current_queue_for_addressbook(RHAddressBook *addressBook){
         return context == addressBook;
     } else {
 #endif //end iOS5+
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
         return dispatch_get_current_queue() == addressBook.addressBookQueue;
+#pragma GCC diagnostic pop
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= 50000
     }
 #endif //end iOS5+
